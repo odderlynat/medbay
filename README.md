@@ -1,15 +1,13 @@
 # Medbay
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Medbay`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Medbay provides a DRY method of providing web service health checks. Provide a series of lambdas and Medbay will execute and optionally benchmark them, returning the result.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'Medbay'
+gem 'medbay'
 ```
 
 And then execute:
@@ -18,11 +16,37 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Medbay
+    $ gem install medbay
 
 ## Usage
 
-TODO: Write usage instructions here
+Medbay is a complete Sinatra app ready to be mounted in Rails.
+
+routes.rb
+```ruby
+mount Medbay::App, at: '/servicehealth'
+```
+
+### Configuration Example
+
+config/initializers/medbay.rb
+```ruby
+Medbay.configure do |config|
+redis_check = Medbay::Test.new('Redis', lambda {
+  passed = false
+
+  begin
+    passed = ($redis.ping == "PONG")
+  rescue Exception => e
+    passed = false
+  end
+
+  return passed
+})
+
+config.tests = [ redis_check ]
+config.benchmark = true # if you want results to include a benchmark
+```
 
 ## Development
 
@@ -32,10 +56,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Medbay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tastycake/medbay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
