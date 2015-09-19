@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.default_executable = 'medbay'
 
   spec.add_dependency "sinatra", "~> 1.4.6"
+  spec.add_dependency "sinatra-contrib", "~> 1.4.6"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"

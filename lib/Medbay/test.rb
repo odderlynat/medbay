@@ -1,6 +1,6 @@
 module Medbay
   class Test
-    attr_accessor :func, :label
+    attr_accessor :label, :func
 
     def initialize(label, func)
       @label = label

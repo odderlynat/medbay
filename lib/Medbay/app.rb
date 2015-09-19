@@ -1,11 +1,9 @@
 require 'sinatra'
+require 'sinatra/contrib'
 
 module Medbay
   class App < Sinatra::Base
-    def empty_response
-      status 200
-      body ''
-    end
+    register Sinatra::Contrib
 
     get '/' do
       results = []
@@ -14,7 +12,7 @@ module Medbay
       }
 
       respond_with :index do |f|
-        f.json { results }
+        f.json { results.to_s }
       end
     end
   end
