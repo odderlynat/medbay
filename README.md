@@ -1,5 +1,7 @@
 # Medbay
 
+[![Build Status](https://travis-ci.org/tastycake/medbay.svg?branch=master)](https://travis-ci.org/tastycake/medbay)
+
 Medbay provides a DRY method of providing web service health checks. Provide a series of lambdas and Medbay will execute and optionally benchmark them, returning the result.
 
 ## Installation
