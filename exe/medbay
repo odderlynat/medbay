@@ -9,9 +9,11 @@ rescue LoadError => e
 end
 
 Medbay.configure do |config|
-  config.tests = [
-    lambda { puts 'hello world' }
-  ]
+  test1 = Medbay::Test.new('Redis', lambda { return true })
+  test2 = Medbay::Test.new('MySQL', lambda { return false })
+  test3 = Medbay::Test.new('AmazonRDS', lambda { return true })
+
+  config.tests = [test1,test2,test3]
 end
 
 Medbay::App.run!

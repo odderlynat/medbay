@@ -8,11 +8,13 @@ module Medbay
     end
 
     get '/' do
+      results = []
       Medbay.configuration.tests.each {|test|
-        test.call
+        results << test.call
       }
 
-      empty_response
+      status 200
+      results
     end
   end
 end

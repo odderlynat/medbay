@@ -1,4 +1,5 @@
 require 'Medbay/configuration'
+require 'Medbay/test'
 
 module Medbay
   autoload :App, 'Medbay/app'
