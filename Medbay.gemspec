@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'medbay/version'
 
 Gem::Specification.new do |spec|
-  spec.name               = "Medbay"
+  spec.name               = "medbay"
   spec.version            = Medbay::VERSION
   spec.authors            = ["Natalie Leigh West"]
   spec.email              = ["iamtastycake@gmail.com"]
 
-  spec.summary            = ""
-  spec.description        = ""
+  spec.summary            = "Self-contained app for running service health checks"
+  spec.description        = "Self-contained app for running service health checks"
   spec.homepage           = "https://github.com/tastycake/medbay"
   spec.license            = "MIT"
 
