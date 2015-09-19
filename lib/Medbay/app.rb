@@ -3,7 +3,9 @@ require 'sinatra'
 module Medbay
   class App < Sinatra::Base
     get '/' do
-      'hello world!'
+      Medbay.configuration.tests.each {|test|
+        test.call
+      }
     end
   end
 end

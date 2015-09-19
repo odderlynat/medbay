@@ -1,6 +1,6 @@
 #!/user/bin/env ruby
 begin
-  require 'lib/Medbay/app.rb'
+  require '../lib/Medbay/app.rb'
 rescue LoadError => e
   require 'rubygems'
   path = File.expand_path '../../lib', __FILE__
@@ -8,4 +8,10 @@ rescue LoadError => e
   require 'lib/Medbay/app.rb'
 end
 
-Medbay::App.run
+Medbay::configure do |config|
+  config.tests = [
+    lambda { puts 'hello world' }
+  ]
+end
+
+Medbay::App.run!
