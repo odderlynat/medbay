@@ -1,8 +1,8 @@
-require 'Medbay/configuration'
-require 'Medbay/test'
+require 'medbay/configuration'
+require 'medbay/test'
 
 module Medbay
-  autoload :App, 'Medbay/app'
+  autoload :App, 'medbay/app'
 
   class << self
     attr_accessor :configuration

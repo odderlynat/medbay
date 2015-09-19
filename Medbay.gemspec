@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'Medbay/version'
+require 'medbay/version'
 
 Gem::Specification.new do |spec|
   spec.name               = "Medbay"
@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary            = ""
   spec.description        = ""
-  spec.homepage           = "https://github.com/tastycake/Medbay"
+  spec.homepage           = "https://github.com/tastycake/medbay"
   spec.license            = "MIT"
 
   spec.files              = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
