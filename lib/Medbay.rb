@@ -1,4 +1,3 @@
-require 'Medbay/version'
 require 'Medbay/configuration'
 
 module Medbay
@@ -10,6 +9,6 @@ module Medbay
 
   def self.configure
     self.configuration ||= Configuration.new
-    yield configuration
+    yield(configuration)
   end
 end
