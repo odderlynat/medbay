@@ -8,7 +8,8 @@ module Medbay
     end
 
     def call
-      @func.call
+      result = @func.call
+      {passed: result, name: @label}
     end
   end
 end

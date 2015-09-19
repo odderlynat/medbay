@@ -13,8 +13,9 @@ module Medbay
         results << test.call
       }
 
-      status 200
-      results
+      respond_with :index do |f|
+        f.json { results }
+      end
     end
   end
 end
