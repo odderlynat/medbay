@@ -11,6 +11,6 @@ module Medbay
   end
 
   def self.configure
-    yield @configuration
+    yield self.configuration
   end
 end

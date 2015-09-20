@@ -4,23 +4,19 @@ require 'sinatra/contrib'
 module Medbay
   class App < Sinatra::Base
     register Sinatra::Contrib
-    require 'pry'
+    set :views, Medbay.configuration.views
 
     get '/' do
       results = []
-      binding.pry
+
       Medbay.configuration.tests.each {|test|
         results << test.call
       }
 
       respond_with :index do |f|
         f.json { results.to_s }
+        f.html { erb :index, locals: {results: results} }
       end
-    end
-
-    get '/test' do
-      status 200
-      body ''
     end
   end
 end
