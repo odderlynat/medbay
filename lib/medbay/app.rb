@@ -14,7 +14,7 @@ module Medbay
       }
 
       respond_with :index do |f|
-        f.json { results.to_s }
+        f.json { results.to_json }
         f.html { erb :index, locals: {results: results} }
       end
     end
