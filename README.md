@@ -34,20 +34,21 @@ mount Medbay::App, at: '/servicehealth'
 config/initializers/medbay.rb
 ```ruby
 Medbay.configure do |config|
-redis_check = Medbay::Test.new('Redis', lambda {
-  passed = false
+  redis_check = Medbay::Test.new('Redis', lambda {
+    result = false
 
-  begin
-    passed = ($redis.ping == "PONG")
-  rescue Exception => e
-    passed = false
-  end
+    begin
+      result = ($redis.ping == "PONG")
+    rescue Exception => e
+      result = false
+    end
 
-  return passed
-})
+    return result
+  })
 
-config.tests = [ redis_check ]
-config.benchmark = true # if you want results to include a benchmark
+  config.tests = [ redis_check ]
+  config.benchmark = true # if you want results to include a benchmark
+end
 ```
 
 ## Development
