@@ -31,8 +31,11 @@ mount Medbay::App, at: '/servicehealth'
 
 ### Configuration Example
 
-config/initializers/medbay.rb
+Simple Redis connectivity check
+
 ```ruby
+# config/initializers/medbay.rb (for Rails apps)
+
 Medbay.configure do |config|
   redis_check = Medbay::Test.new('Redis', lambda {
     result = false
