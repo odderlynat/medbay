@@ -24,8 +24,8 @@ Or install it yourself as:
 
 Medbay is a complete Sinatra app ready to be mounted in Rails.
 
-routes.rb
 ```ruby
+# routes.rb
 mount Medbay::App, at: '/servicehealth'
 ```
 
